@@ -1,0 +1,5 @@
+<plugin id="org.slidinator.doctypes">
+  
+  <feature extension="dita.specialization.catalog.relative" file="catalog.xml"/>
+
+</plugin>

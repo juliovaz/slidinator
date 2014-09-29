@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">  
+  
+  <public publicId="urn:pubid:slidinator.org:doctypes:dita:simpleslideset" uri="simpleslideset.xsd" />
+  
+  <public publicId="urn:pubid:dita4publishers.org:doctypes:dita:simpleslideset" uri="simpleslideset.xsd" />
+  
+  <public publicId="urn:pubid:slidinator.org:namespaces:simpleslideset" uri="simpleslideset.xsd" />
+  
+  <public publicId="urn:pubid:dita4publishers.org:namespaces:simpleslideset" uri="simpleslideset.xsd" />
+  
+  <system systemId="urn:pubid:slidinator.org:doctypes:dita:simpleslideset.xsd" uri="simpleslideset.xsd"/>
+  <system systemId="urn:pubid:slidinator.org:namespaces:simpleslideset.xsd" uri="simpleslideset.xsd"/>
+  <system systemId="urn:pubid:dita4publishers.org:doctypes:dita:simpleslideset.xsd" uri="simpleslideset.xsd"/>
+  <system systemId="urn:pubid:dita4publishers.org:namespaces:simpleslideset.xsd" uri="simpleslideset.xsd"/>
+  
+  <system systemId="simpleslideset.xsd" uri="simpleslideset.xsd"/>
+  
+  <uri name="urn:pubid:slidinator.org:namespaces:simpleslideset" uri="simpleslideset.xsd"/>
+  <uri name="urn:pubid:dita4publishers.org:namespaces:simpleslideset" uri="simpleslideset.xsd"/>
+  
+</catalog>
