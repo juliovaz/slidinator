@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?><project name="dita2pptx" default="dita2pptx">
+  
+  <!-- test to see where the plugin is located, plugins or demo -->
+  <dirname property="pptx.dir" file="${ant.file.dita2pptx}"></dirname>
+	
+	<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
+	<property name="debug" value="false"></property>
+	
+	<property name="slideset.temp.dir" value="${dita.temp.dir}${file.separator}slideset_temp"></property>
+	<!-- This is the name of the slideset "dot" program, which is used to generate
+	     graph pictures from DOT (.gv) files. If it is not in your system PATH then
+	     set this property to the absolute path to the executable.
+	  -->
+	  
+	<target name="dita2pptx" unless="noMap" depends="build-init,preprocess">
+	  
+	  <java jar="${pptx.dir}/bin/dita2slideset-app.jar" fork="true" maxmemory="512m">
+	    <arg line="DITA2PPTX -i ${args.input}         -b ${pptx.dir}/samples/sample-slides-01.pptx -otdir ${dita.dir} -o ${output.dir}"></arg>
+	  	<classpath path="${pptx.dir}/bin">
+	    	<fileset dir="${pptx.dir}/bin">
+	    		<include name="**/*.jar"></include>
+	    	</fileset>
+	    </classpath>
+	  </java>
+	  
+  </target>
+	
+</project>
