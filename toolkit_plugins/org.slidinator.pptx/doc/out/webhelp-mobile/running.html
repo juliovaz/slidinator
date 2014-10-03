@@ -1,0 +1,111 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Running slidinator in OT command line"/>
+<meta name="abstract" content="This topic describes how to run slidinator from the OT command line. Use this as a basis to enable the plugin in any OT-based tool."/>
+<meta name="description" content="This topic describes how to run slidinator from the OT command line. Use this as a basis to enable the plugin in any OT-based tool."/>
+<meta name="DC.Relation" scheme="URI" content="requirements_limitations.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="task_r5c_5d4_pp"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Running slidinator in OT command line</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" type="text/css" href="oxygen-webhelp/resources/css/commonltr.css"><!----></link><link type="text/css" href="oxygen-webhelp/resources/skins/mobile/jquery.mobile-1.4.0/jquery.mobile-1.4.0.min.css" rel="stylesheet"><!----></link><link type="text/css" href="oxygen-webhelp/resources/skins/mobile/toc.css" rel="stylesheet"><!----></link><link type="text/css" href="oxygen-webhelp/resources/skins/mobile/topic.css" rel="stylesheet"><!----></link><script type="text/javascript" src="oxygen-webhelp/resources/js/jquery-1.8.2.min.js"><!----></script><script type="text/javascript" src="oxygen-webhelp/resources/js/browserDetect.js"><!----></script><script type="text/javascript" src="oxygen-webhelp/resources/skins/mobile/topic.js"><!----></script><script type="text/javascript" src="oxygen-webhelp/resources/skins/mobile/toc.js"><!----></script><script type="text/javascript" src="oxygen-webhelp/resources/skins/mobile/jquery.mobile-1.4.0/jquery.mobile-1.4.0.min.js"><!----></script><script type="text/javascript" src="oxygen-webhelp/resources/skins/mobile/jquery.mobile-1.4.0/jquery.mobile.nestedlists.js"><!----></script><script type="text/javascript" src="oxygen-webhelp/search/htmlFileList.js" charset="utf-8"><!----></script><script type="text/javascript" src="oxygen-webhelp/search/htmlFileInfoList.js" charset="utf-8"><!----></script><script type="text/javascript" src="oxygen-webhelp/search/nwSearchFnt.js" charset="utf-8"><!----></script><script type="text/javascript" src="oxygen-webhelp/search/stemmers/en_stemmer.js" charset="utf-8"><!----></script><script type="text/javascript" src="oxygen-webhelp/search/index-1.js" charset="utf-8"><!----></script><script type="text/javascript" src="oxygen-webhelp/search/index-2.js" charset="utf-8"><!----></script><script type="text/javascript" src="oxygen-webhelp/search/index-3.js" charset="utf-8"><!----></script><script type="text/javascript" src="oxygen-webhelp/resources/localization/strings.js" charset="utf-8"><!----></script><script type="text/javascript" src="oxygen-webhelp/resources/js/localization.js" charset="utf-8"><!----></script><script type="text/javascript" src="oxygen-webhelp/resources/js/parseuri.js" charset="utf-8"><!----></script><script type="text/javascript" src="oxygen-webhelp/resources/js/log.js"><!----></script></head>
+<body><div data-content-theme="c" data-role="page" lang="en-us"><div data-role="header" data-position="fixed" data-theme="c"><h1 class="pageHeader">Running slidinator in OT command line</h1><div xmlns:xhtml="http://www.w3.org/1999/xhtml" class="ui-btn-left"><a href="index.html" data-role="button" title="Home" data-icon="home" rel="external" data-iconpos="notext"> </a></div><div xmlns:xhtml="http://www.w3.org/1999/xhtml" class="ui-btn-right" data-role="controlgroup" data-iconpos="notext" data-type="horizontal"><a href="requirements_limitations.html" data-icon="arrow-l" data-role="button" data-iconpos="notext" class="prevPage" title="Previous" data-direction="reverse"> </a></div></div><div data-role="content" class="content"><h1 class="title topictitle1">Running slidinator in OT command line</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">This topic describes how to run slidinator from the OT command line. Use this as a
+        basis to enable the plugin in any OT-based tool.</p>
+
+        <div class="section prereq p">
+            <ol class="ol" id="task_r5c_5d4_pp__ol_mry_r24_pp">
+                <li class="li">Create a PowerPoint document that will be the base for the slides. This can be
+                    an empty slide set but you may want to keep the title slide as a
+                    placeholder.</li>
+
+                <li class="li">Install and integrate the plugin to a DITA-OT instance.</li>
+
+                <li class="li">Prepare your DITA source and assemble into a map. </li>
+
+            </ol>
+
+        </div>
+
+        <div class="section context">
+            <p class="p">The plugin creates one slide for each topic. For best results, your content should be
+                either unordered or ordered lists.</p>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">Go to the DITA-OT directory and double-click <span class="keyword cmdname">startcmd</span> for
+                    your system.</span>
+                <div class="itemgroup stepresult">
+                    <p class="p">This opens a command window with a DITA-OT prompt.</p>
+
+                </div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Enter the example command at the prompt to start the transform.</span>
+                <div class="itemgroup stepxmp">
+                    <pre class="pre screen">DITA-OT1.7.5 &gt; ant -f build.xml -Dtranstype pptx 
+-Dargs.input <span class="ph filepath"><var class="keyword varname">path_to_input.ditamap</var></span>
+-Doutput.dir <span class="ph filepath"><var class="keyword varname">path_to_output_dir</var></span> 
+-Dargs.slidinator.base.pptx <span class="ph filepath"><var class="keyword varname">path_to_base_powerpoint.pptx</var></span></pre>
+
+                </div>
+                <div class="itemgroup stepresult">
+                    <p class="p">The transform runs and you should see a message that states
+                            <samp class="ph systemoutput">Build successful</samp>.</p>
+
+                </div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Fix the resulting pptx file.</span>
+                <ol type="a" class="ol substeps" id="task_r5c_5d4_pp__substeps_czb_km4_pp">
+                    <li class="li substep">
+                        <span class="ph cmd">Add or update the title slide.</span>
+                    </li>
+
+                    <li class="li substep">
+                        <span class="ph cmd">Fix font size for slides running off the page.</span>
+                    </li>
+
+                    <li class="li substep">
+                        <span class="ph cmd">Fix image slides and transparency.</span>
+                    </li>
+
+                    <li class="li substep">
+                        <span class="ph cmd">Add images that were dropped.</span>
+                    </li>
+
+                    <li class="li substep">
+                        <span class="ph cmd">Save the updated PPTX.</span>
+                    </li>
+
+                </ol>
+
+            </li>
+</ol>
+
+        <div class="section result">
+            <p class="p">You now have a basic presentation.</p>
+
+        </div>
+
+        <div class="section postreq">
+            <p class="p">Add any transitions or other effects you want for your presentation.</p>
+
+        </div>
+
+    </div>
+
+<div class="related-links"> 
+        </div>
+</div><div data-role="footer" data-theme="c"><div class="footer">WebHelp output generated by<a href="http://www.oxygenxml.com" target="_blank" onclick="return true;"> oXygen <span class="xmlauthor">XML Author</span></a></div></div></div></body>
+</html>

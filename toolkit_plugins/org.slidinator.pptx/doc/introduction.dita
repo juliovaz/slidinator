@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_oz4_xvn_pp">
+ <title>Introduction</title>
+ <shortdesc>The slidinator plugin transforms DITA source into a PowerPoint presentation based on an
+  existing PowerPoint slide set. </shortdesc>
+ <conbody>
+  <p>The plugin applies any static text defined in the slide masters to the final output and uses
+   whatever default fonts and colors are set for the body and title content. The plugin creates
+   simple single-column slides from the DITA source. The slides are a starting point and may need
+   adjustment after production but takes full advantage of reuse capabilities inherent in DITA.</p>
+  <p>The plugin is provided without warranty but recommendations and contributions for improvement
+   can be made at <xref href="https://github.com/drmacro/slidinator" format="html" scope="external"
+   />.</p>
+ </conbody>
+</concept>

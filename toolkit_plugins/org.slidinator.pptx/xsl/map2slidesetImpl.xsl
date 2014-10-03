@@ -174,7 +174,7 @@
   <xsl:template name="report-parameters" match="*" mode="report-parameters">
     <xsl:message> 
       ==========================================
-      Plugin version: ^version^ - build ^buildnumber^ at ^timestamp^
+      Plugin version: 0.2.0RC02 - build 1 at 2014-10-01 09:13:151 CDT
       
       Parameters:
       

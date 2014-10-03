@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="reference_jl5_zzn_pp">
+  <title>Requirements and limitations</title>
+  <shortdesc>Slidinator requires a specific environment and input.</shortdesc>
+  <refbody>
+    <section>
+      <title>Requirements</title>
+      <p>Slidinator runs on DITA-OT 1.7.5 or later. It requires other DITA-OT plugins for
+        success.</p>
+      <ul id="ul_tdj_m14_pp">
+        <li>org.slidinator.doctypes</li>
+        <li>org.dita-community.common.xslt</li>
+        <li>org.dita4publishers.common.xslt</li>
+        <li>org.dita4publishers.common.mapdriven</li>
+      </ul>
+      <note>If running the plugin from &lt;/oXygen>, make sure that you turn off support for RNG
+        attribute defaulting.</note>
+    </section>
+    <section>
+      <title>Limitations</title>
+      <p>At the time of this writing, there are a number of things that cause the output to be less
+        than optimal. Keep these in mind when providing input to the plugin.</p>
+      <ul id="ul_u13_cd4_pp">
+        <li>Emulating two-columns with tables in the source results in output that appears garbled.
+          Avoid tables in the source.</li>
+        <li>Images in the source may get dropped when you open PowerPoint. You will get the warning
+          indicated by this message. <image href="PPMessage.PNG" id="image_dck_lsc_qp">
+            <alt>Message warning that PowerPoint cannot display text, images or other objects.</alt>
+          </image> Dropped images that are the only thing on a slide are indicated by blank slides.
+          The only solution is to insert the image in PowerPoint.</li>
+        <li>Slidinator cannot determine the font-size of the output and will not split the content
+          across slides. Whatever text is in a topic will be output to a single slide. You will have
+          to make adjustments manually.</li>
+        <li>Paragraphs are handled as if they are unbulleted list items.</li>
+      </ul>
+    </section>
+  </refbody>
+</reference>

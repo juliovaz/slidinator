@@ -80,13 +80,14 @@
   		<param name="OUTPUTDIR" expression="${slideset.xslt.outdir}"/>
       <xmlcatalog refid="dita.catalog"/>
     </xslt>
-
+    
   </target>
 	 
 	
   <target name="slideset.generate.pptx" 
 	  depends="dita.map.slideset.init, 
-	           slideset.generate.slidesetml
+	           slideset.generate.slidesetml,
+	           slideset.copy.graphics
   	           "
   >
     <condition property="args.slidinator.base.pptx" 
@@ -118,7 +119,7 @@
    <!-- All work is done by dependency targets -->
   </target>
   
-  <target name="slideset.copy.graphics" 
+  <target name="slideset.copy.graphics" depends="slidinator.generate.copy.task"
 	  description="Copies graphics from input to the slideset output directory based on the graphic map generated during slideset generation">
   	<condition property="isCopyGraphics">
      <available file="${slideset.temp.dir}/copy-graphics.xml"/>
@@ -128,5 +129,66 @@
   		>
   	</ant>
 	</target>
-	
+  
+  <target name="slidinator.generate.copy.task" depends="slidinator.generate.graphicMap">
+    
+    <property name="map2antcopy.style" location="${dita.plugin.org.dita4publishers.common.xslt.dir}/xsl/graphicMap2AntCopyScript.xsl"/>
+    <property name="osvalue" value="${os.name}"/>
+    <property name="output" location="${slideset.temp.dir}"/>
+    
+    <xslt processor="trax"
+      basedir="${dita.input.dirname}"
+      destdir="${dita.temp.dir}"
+      extension=".xml"
+      out="${slideset.temp.dir}/copy-graphics.xml"
+      in="${slideset.temp.dir}/graphicmap.xml"
+      classpathref="dost.class.path"
+      style="${map2antcopy.style}">
+      <param name="debug" expression="${debug}"/>
+      <param name="tempdir" expression="${dita.temp.dir}"/>
+      <param name="outdir" expression="${output}"/>
+      <param name="rawPlatformString" expression="${os.name}"/>
+      
+      <!-- Parameters from dita2xhtml and similar transtypes: -->   
+      <param name="WORKDIR" expression="${workdir}" if="workdir"/>
+      <param name="DRAFT" expression="${args.draft}" if="args.draft"></param>
+      <param name="ARTLBL" expression="${args.artlbl}" if="args.artlbl"></param>
+      <param name="OUTPUTDIR" expression="${slideset.xslt.outdir}"/>
+      <xmlcatalog refid="dita.catalog"/>
+      
+    </xslt>
+  </target>
+  
+  <target name="slidinator.generate.graphicMap">
+    
+    <property name="map2graphicmap.style" location="${dita.plugin.org.dita4publishers.common.xslt.dir}/xsl/map2graphicMap.xsl"/>
+    <property name="osvalue" value="${os.name}"/>
+    <property name="output" location="${slideset.temp.dir}"/>
+    <property name="filters" value="${args.filter}"/>
+    <property name="graphicPath" value="${dita.temp.dir}"/>
+    
+    <xslt processor="trax"
+      basedir="${dita.input.dirname}"
+      extension=".xml"
+      out="${slideset.temp.dir}/graphicmap.xml"
+      in="${dita.temp.dir}${file.separator}${dita.input.filename}"
+      classpathref="dost.class.path"
+      style="${map2graphicmap.style}">
+      <param name="debug" expression="${debug}"/>
+      <param name="tempdir" expression="${dita.temp.dir}"/>
+      <param name="outdir" expression="${output}"/>
+      <param name="rawPlatformString" expression="${os.name}"/>
+      <param name="filterdoc" expression="${filters}"/>
+      
+      <!-- Parameters from dita2xhtml and similar transtypes: -->   
+      <param name="WORKDIR" expression="${workdir}" if="workdir"/>
+      <param name="DRAFT" expression="${args.draft}" if="args.draft"></param>
+      <param name="ARTLBL" expression="${args.artlbl}" if="args.artlbl"></param>
+      <param name="OUTPUTDIR" expression="${slideset.xslt.outdir}"/>
+      <param name="imagesOutputPath" expression="file:${file.separator}${graphicPath}"/>
+      <xmlcatalog refid="dita.catalog"/>
+      
+    </xslt>
+  </target>
+  
 </project>

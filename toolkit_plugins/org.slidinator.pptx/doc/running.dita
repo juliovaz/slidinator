@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="task_r5c_5d4_pp">
+    <title>Running slidinator in OT command line</title>
+    <shortdesc>This topic describes how to run slidinator from the OT command line. Use this as a
+        basis to enable the plugin in any OT-based tool.</shortdesc>
+    <taskbody>
+        <prereq>
+            <ol id="ol_mry_r24_pp">
+                <li>Create a PowerPoint document that will be the base for the slides. This can be
+                    an empty slide set but you may want to keep the title slide as a
+                    placeholder.</li>
+                <li>Install and integrate the plugin to a DITA-OT instance.</li>
+                <li>Prepare your DITA source and assemble into a map. </li>
+            </ol>
+        </prereq>
+        <context>
+            <p>The plugin creates one slide for each topic. For best results, your content should be
+                either unordered or ordered lists.</p>
+        </context>
+        <steps>
+            <step>
+                <cmd>Go to the DITA-OT directory and double-click <cmdname>startcmd</cmdname> for
+                    your system.</cmd>
+                <stepresult>
+                    <p>This opens a command window with a DITA-OT prompt.</p>
+                </stepresult>
+            </step>
+            <step>
+                <cmd>Enter the example command at the prompt to start the transform.</cmd>
+                <stepxmp>
+                    <screen>DITA-OT1.7.5 > ant -f build.xml -Dtranstype pptx 
+-Dargs.input <filepath><varname>path_to_input.ditamap</varname></filepath>
+-Doutput.dir <filepath><varname>path_to_output_dir</varname></filepath> 
+-Dargs.slidinator.base.pptx <filepath><varname>path_to_base_powerpoint.pptx</varname></filepath></screen>
+                </stepxmp>
+                <stepresult>
+                    <p>The transform runs and you should see a message that states
+                            <systemoutput>Build successful</systemoutput>.</p>
+                </stepresult>
+            </step>
+            <step>
+                <cmd>Fix the resulting pptx file.</cmd>
+                <substeps id="substeps_czb_km4_pp">
+                    <substep>
+                        <cmd>Add or update the title slide.</cmd>
+                    </substep>
+                    <substep>
+                        <cmd>Fix font size for slides running off the page.</cmd>
+                    </substep>
+                    <substep>
+                        <cmd>Fix image slides and transparency.</cmd>
+                    </substep>
+                    <substep>
+                        <cmd>Add images that were dropped.</cmd>
+                    </substep>
+                    <substep>
+                        <cmd>Save the updated PPTX.</cmd>
+                    </substep>
+                </substeps>
+            </step>
+        </steps>
+        <result>
+            <p>You now have a basic presentation.</p>
+        </result>
+        <postreq>
+            <p>Add any transitions or other effects you want for your presentation.</p>
+        </postreq>
+    </taskbody>
+</task>

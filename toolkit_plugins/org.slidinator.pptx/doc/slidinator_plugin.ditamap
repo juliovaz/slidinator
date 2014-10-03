@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+ <title>The Slidinator Plugin 0.2.0RC02</title>
+ <topicref href="introduction.dita"/>
+ <topicref href="requirements_limitations.dita"/>
+ <topicref href="running.dita"/>
+</map>
